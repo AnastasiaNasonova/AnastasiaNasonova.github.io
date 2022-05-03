@@ -1,0 +1,200 @@
+<html>
+<head>
+
+<script language="JavaScript">
+
+var photos=new Array()
+var photoslink=new Array()
+var which=0
+
+var photos1=new Array()
+var photoslink1=new Array()
+var which1=0
+ 
+photos[0]="img/c/1.jpg" 
+photos[1]="img/c/2.jpg"
+photos[2]="img/c/3.jpg"
+photos[3]="img/c/4.jpg"
+photos[4]="img/c/5.jpg"
+photos[5]="img/c/6.jpg"
+photos[6]="img/c/7.jpg" 
+
+photos1[0]="img/c/8.jpg"
+photos1[1]="img/c/9.jpg"  
+photos1[2]="img/c/10.jpg"
+photos1[3]="img/c/11.jpg" 
+photos1[4]="img/c/12.jpg"    
+
+var linkornot=0
+var linkornot1=0
+
+photoslink[0]=""
+photoslink[1]=""
+photoslink[2]=""
+photoslink[3]=""
+photoslink[4]=""
+photoslink[5]=""
+photoslink[6]="" 
+
+photoslink1[0]=""  
+photoslink1[1]=""  
+photoslink1[2]="" 
+photoslink1[3]=""
+photoslink1[4]=""
+
+
+
+var preloadedimages=new Array()
+for (i=0;i<photos.length;i++){
+preloadedimages[i]=new Image()
+preloadedimages[i].src=photos[i]
+}
+
+var preloadedimages1=new Array() 
+for (i=0;i<photos1.length;i++){
+preloadedimages1[i]=new Image() 
+preloadedimages1[i].src=photos1[i]
+}
+
+function applyeffect(){
+if (document.all){
+photoslider.filters.revealTrans.Transition=Math.floor(Math.random()*23)
+photoslider.filters.revealTrans.stop()
+photoslider.filters.revealTrans.apply()
+}
+}
+
+function applyeffect1(){ 
+if (document.all){  
+photoslider1.filters.revealTrans.Transition=Math.floor(Math.random()*23) 
+photoslider1.filters.revealTrans.stop()
+photoslider1.filters.revealTrans.apply()
+}
+}
+
+function playeffect(){
+if (document.all)
+photoslider.filters.revealTrans.play()
+}
+
+function playeffect1(){
+if (document.all) 
+photoslider1.filters.revealTrans.play()
+}
+
+function keeptrack(){
+window.status="Image "+(which+1)+" of "+photos.length
+}
+
+function keeptrack1(){ 
+window.status="Image "+(which1+1)+" of "+photos1.length
+}
+
+function backward(){
+if (which>0){
+which--
+applyeffect()
+document.images.photoslider.src=photos[which]
+playeffect()
+keeptrack()
+}
+}
+
+function backward1(){ 
+if (which1>0){ 
+which1--                                                                                                             
+applyeffect1()
+document.images.photoslider1.src=photos1[which1]
+playeffect1()
+keeptrack1()
+}
+} 
+ 
+function forward(){
+if (which<photos.length-1){
+which++
+applyeffect()
+document.images.photoslider.src=photos[which]
+playeffect()
+keeptrack()
+}
+}
+
+function forward1(){
+if (which1<photos1.length-1){
+which1++
+applyeffect1()
+document.images.photoslider1.src=photos1[which1]
+playeffect1()
+keeptrack1()
+}
+}     
+
+function transport(){
+window.location=photoslink[which]
+}
+
+function transport1(){
+window.location=photoslink1[which1]
+} 
+
+</script>
+</head>
+<body background="fon.jpg">
+<br><br>
+<font face="comic sans ms" size=+2 color=red> 
+<big>Задача 3. Показать работу схемы ЦАП, как сумматора на базе ОУ с переменным К</big><br><br>
+<font face="comic sans ms" size=+2 color=purple> 
+<p><h4>1. Сборка схемы модели ЦАП, как сумматора на базе ОУ с переменным К, в среде "Tina"</h4></p> 
+<font face="comic sans ms" size=+2 color=purple> 
+<body>
+<table border="0" cellspacing="0" cellpadding="0" align=center>
+  <tr>
+    <td width="100%" colspan="2" ><center>
+<script>
+if (linkornot==1)
+document.write('<a href="javascript:transport()">')
+document.write('<img width=100% src="'+photos[0]+'" name="photoslider" style="filter:revealTrans(duration=2,transition=23)" border=0>')
+if (linkornot==1)
+document.write('</a>')
+</script>
+</center></td> 
+</tr>
+<tr>
+<td width="50%" height="21"><p align="left"> 
+<a href="#" onClick="backward();return false"><b><<</b>Предыдущая</a></td>
+<td width="50%" height="21"><p align="right">
+<a href="#" onClick="forward();return false">Следующая<b>>></b></a></td>
+</tr>
+</table>
+</td>
+</table>
+
+<p><h4>2. Демонстрация работы модели ЦАП как сумматора на базе ОУ с переменным К</h4></p>
+
+<table border="0" cellspacing="3" cellpadding="3" align=center> 
+<tr>
+<td width="100%"; colspan="2" height="22"><center> 
+<script>
+if (linkornot1==1)
+document.write('<a href="javascript:transport()">') 
+document.write('<img width=100% src="'+photos1[0]+'" name="photoslider1" style="filter:revealTrans(duration=2,transition=23)" border=0>')
+if (linkornot1==1)
+document.write('</a>')
+</script> 
+
+</center></td>
+</tr>
+<tr>
+<td width="50%" height="21"><p align="left">
+<a href="#" onClick="backward1();return false"><b><<</b>Предыдущая</a></td> 
+<td width="50%" height="21"><p align="right"> 
+<a href="#" onClick="forward1();return false">Следующая<b>>></b></a></td>  
+</tr>
+</table>
+</td>
+</table>
+
+</body>
+</body>
+</html> 
